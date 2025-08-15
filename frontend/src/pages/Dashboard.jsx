@@ -216,15 +216,18 @@ const Dashboard = () => {
                   </div>
                 </Link>
 
-                <div className="flex items-center p-4 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-xl opacity-50 cursor-not-allowed">
+                <Link 
+                  to="/reports" 
+                  className="flex items-center p-4 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-xl hover:from-purple-600 hover:to-purple-700 transition-all duration-200 transform hover:-translate-y-1"
+                >
                   <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mr-4">
                     <span className="text-xl">📊</span>
                   </div>
                   <div>
                     <h3 className="font-semibold">Reportes y Análisis</h3>
-                    <p className="text-purple-100 text-sm">Próximamente - Análisis detallado de tus finanzas</p>
+                    <p className="text-purple-100 text-sm">Análisis detallado de tus finanzas por categoría y mes</p>
                   </div>
-                </div>
+                </Link>
 
                 <div className="flex items-center p-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl opacity-50 cursor-not-allowed">
                   <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mr-4">
