@@ -104,7 +104,7 @@ const createTransaction = async (req, res) => {
 const updateTransaction = async (req, res) => {
   try {
     const transaction = await Transaction.findOneAndUpdate(
-      { _id: req.params.id, user: req.user.id },
+      { _id: req.params.id, user: req.user._id },
       req.body,
       { new: true, runValidators: true }
     );
