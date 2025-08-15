@@ -8,10 +8,6 @@ const connectDB = async () => {
     // Si no hay MONGODB_URI específica, construir basado en el entorno
     if (!mongoUri) {
       const isDocker = process.env.DOCKER_ENV === "true";
-      console.log(
-        "isDockerisDockerisDockerisDockerisDockerisDockerisDockerisDockerisDockerisDocker ",
-        isDocker
-      );
       const host = isDocker ? "mongodb" : "localhost";
       const port = isDocker ? "27017" : (process.env.MONGO_PORT || "27027");
       const username = process.env.MONGO_USERNAME || "testai_user";
@@ -19,7 +15,6 @@ const connectDB = async () => {
       const database = process.env.MONGO_DATABASE || "testai";
 
       mongoUri = `mongodb://${username}:${password}@${host}:${port}/${database}`;
-      console.log("mongoUri", mongoUri);
     }
 
     const conn = await mongoose.connect(mongoUri);

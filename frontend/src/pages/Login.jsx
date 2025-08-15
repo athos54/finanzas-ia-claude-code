@@ -7,8 +7,6 @@ const Login = () => {
   const location = useLocation();
 
   useEffect(() => {
-    console.log("Login useEffect triggered");
-    console.log("Current URL:", window.location.href);
 
     // Procesar callback de OAuth primero
     const urlParams = new URLSearchParams(location.search);
@@ -16,14 +14,8 @@ const Login = () => {
     const user = urlParams.get("user");
     const error = urlParams.get("error");
 
-    console.log("OAuth callback params:", {
-      token: token ? "Present" : "None",
-      user: user ? "Present" : "None",
-      error,
-    });
 
     if (token && user) {
-      console.log("Setting token and user in localStorage");
       localStorage.setItem("token", token);
       localStorage.setItem("user", user);
 
@@ -35,7 +27,6 @@ const Login = () => {
     }
 
     if (error) {
-      console.log("OAuth error:", error);
       setError(decodeURIComponent(error));
       // Limpiar parámetros de error de la URL
       window.history.replaceState({}, document.title, window.location.pathname);
@@ -47,21 +38,16 @@ const Login = () => {
       const existingToken = localStorage.getItem("token");
       const existingUser = localStorage.getItem("user");
 
-      console.log("Existing token:", existingToken ? "Present" : "None");
-      console.log("Existing user:", existingUser ? "Present" : "None");
 
       if (existingToken && existingUser) {
-        console.log("User already logged in, redirecting to dashboard");
         navigate("/dashboard", { replace: true });
       }
     }
   }, [location.search, navigate]);
 
   const handleGoogleLogin = () => {
-    console.log("Google login button clicked");
     const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
     const googleAuthUrl = `${apiUrl}/auth/google`;
-    console.log("Redirecting to:", googleAuthUrl);
     window.location.href = googleAuthUrl;
   };
 
