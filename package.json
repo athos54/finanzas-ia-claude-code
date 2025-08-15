@@ -12,7 +12,10 @@
     "docker:up": "docker-compose up -d",
     "docker:down": "docker-compose down",
     "docker:build": "docker-compose build",
-    "docker:logs": "docker-compose logs -f"
+    "docker:logs": "docker-compose logs -f",
+    "mongodb:up": "docker-compose -f docker-compose-dev.yml --env-file .env.dev up -d",
+    "mongodb:down": "docker-compose -f docker-compose-dev.yml down",
+    "mongodb:logs": "docker-compose -f docker-compose-dev.yml logs -f"
   },
   "keywords": ["nodejs", "express", "mongodb", "react", "tailwind", "fullstack"],
   "author": "",

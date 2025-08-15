@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  mongodb-dev:
+    image: mongo:4.4.6
+    container_name: testai_mongodb_dev
+    restart: unless-stopped
+    ports:
+      - "27027:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME:-admin}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD:-adminpassword123}
+      MONGO_INITDB_DATABASE: ${MONGO_DATABASE:-testai}
+    volumes:
+      - mongodb_dev_data:/data/db
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    networks:
+      - testai_dev_network
+
+volumes:
+  mongodb_dev_data:
+
+networks:
+  testai_dev_network:
+    driver: bridge

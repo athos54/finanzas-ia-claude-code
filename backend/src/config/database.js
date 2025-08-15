@@ -13,16 +13,19 @@ const connectDB = async () => {
         isDocker
       );
       const host = isDocker ? "mongodb" : "localhost";
+      const port = isDocker ? "27017" : (process.env.MONGO_PORT || "27027");
       const username = process.env.MONGO_USERNAME || "testai_user";
       const password = process.env.MONGO_PASSWORD || "testai_password123";
       const database = process.env.MONGO_DATABASE || "testai";
 
-      mongoUri = `mongodb://${username}:${password}@${host}:27017/${database}`;
+      mongoUri = `mongodb://${username}:${password}@${host}:${port}/${database}`;
       console.log("mongoUri", mongoUri);
     }
 
     const conn = await mongoose.connect(mongoUri);
+    console.log("✅ MongoDB connection successful!");
     console.log(`MongoDB Connected: ${conn.connection.host}`);
+    console.log(`Database: ${conn.connection.name}`);
     console.log(`Using URI: ${mongoUri.replace(/\/\/.*@/, "//***:***@")}`); // Log sin credenciales
   } catch (error) {
     console.error("Error connecting to MongoDB:", error.message);

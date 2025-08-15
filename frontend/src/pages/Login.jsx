@@ -59,11 +59,10 @@ const Login = () => {
 
   const handleGoogleLogin = () => {
     console.log("Google login button clicked");
-    console.log(
-      "Redirecting to:",
-      "https://mcp.digital-goods.es/api/auth/google"
-    );
-    window.location.href = "https://mcp.digital-goods.es/api/auth/google";
+    const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+    const googleAuthUrl = `${apiUrl}/auth/google`;
+    console.log("Redirecting to:", googleAuthUrl);
+    window.location.href = googleAuthUrl;
   };
 
   return (

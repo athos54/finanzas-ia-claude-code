@@ -24,7 +24,7 @@ const googleAuth = async (req, res) => {
     const token = generateToken(user._id);
     console.log("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
 
-    const clientUrl = process.env.CLIENT_URL || "https://mcp.digital-goods.es";
+    const clientUrl = process.env.CLIENT_URL || "http://localhost:5173";
 
     const userInfo = {
       id: user._id,
@@ -44,7 +44,7 @@ const googleAuth = async (req, res) => {
     );
   } catch (error) {
     console.error("Error in Google OAuth callback:", error);
-    const clientUrl = process.env.CLIENT_URL || "http://localhost:5174";
+    const clientUrl = process.env.CLIENT_URL || "http://localhost:5173";
     res.redirect(
       `${clientUrl}/login?error=${encodeURIComponent("Error de autenticación")}`
     );
