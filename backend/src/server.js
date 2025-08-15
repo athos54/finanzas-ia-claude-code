@@ -1,12 +1,12 @@
+const dotenv = require('dotenv');
+dotenv.config();
+
 const express = require('express');
 const cors = require('cors');
-const dotenv = require('dotenv');
 const session = require('express-session');
 const passport = require('./config/passport');
 const connectDB = require('./config/database');
 const errorHandler = require('./middleware/errorHandler');
-
-dotenv.config();
 
 connectDB();
 
@@ -35,6 +35,8 @@ app.use(passport.session());
 
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/transactions', require('./routes/transactions'));
+app.use('/api/goals', require('./routes/goals'));
+app.use('/api/budgets', require('./routes/budgets'));
 
 
 app.get('/api/health', (req, res) => {

@@ -48,6 +48,26 @@ export const transactionsAPI = {
   getStats: (params = {}) => api.get('/transactions/stats', { params }),
 }
 
+export const goalsAPI = {
+  getAll: (params = {}) => api.get('/goals', { params }),
+  getById: (id) => api.get(`/goals/${id}`),
+  create: (data) => api.post('/goals', data),
+  update: (id, data) => api.put(`/goals/${id}`, data),
+  updateProgress: (id, amount) => api.put(`/goals/${id}/progress`, { amount }),
+  delete: (id) => api.delete(`/goals/${id}`),
+  getStats: () => api.get('/goals/stats'),
+}
+
+export const budgetsAPI = {
+  getAll: (params = {}) => api.get('/budgets', { params }),
+  getById: (id) => api.get(`/budgets/${id}`),
+  create: (data) => api.post('/budgets', data),
+  update: (id, data) => api.put(`/budgets/${id}`, data),
+  recalculate: (id) => api.put(`/budgets/${id}/recalculate`),
+  delete: (id) => api.delete(`/budgets/${id}`),
+  getStats: () => api.get('/budgets/stats'),
+}
+
 export const healthCheck = () => api.get('/health')
 
 export default api

@@ -56,6 +56,12 @@ const Navbar = () => {
                 >
                   Reportes
                 </Link>
+                <Link
+                  to="/goals"
+                  className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Metas
+                </Link>
                 <span className="text-gray-600 text-sm">¡Hola, {user.name}!</span>
                 <button
                   onClick={handleLogout}

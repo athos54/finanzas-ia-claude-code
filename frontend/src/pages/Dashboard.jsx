@@ -229,15 +229,18 @@ const Dashboard = () => {
                   </div>
                 </Link>
 
-                <div className="flex items-center p-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl opacity-50 cursor-not-allowed">
+                <Link 
+                  to="/goals" 
+                  className="flex items-center p-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl hover:from-green-600 hover:to-green-700 transition-all duration-200 transform hover:-translate-y-1"
+                >
                   <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mr-4">
                     <span className="text-xl">🎯</span>
                   </div>
                   <div>
                     <h3 className="font-semibold">Metas y Presupuestos</h3>
-                    <p className="text-green-100 text-sm">Próximamente - Define metas y controla presupuestos</p>
+                    <p className="text-green-100 text-sm">Planifica objetivos y controla tus gastos</p>
                   </div>
-                </div>
+                </Link>
               </div>
             </div>
           </div>
