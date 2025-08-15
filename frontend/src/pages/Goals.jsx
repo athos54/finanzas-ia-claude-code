@@ -239,12 +239,14 @@ const Goals = () => {
                   {/* Goals Header */}
                   <div className="flex justify-between items-center mb-6">
                     <h2 className="text-xl font-bold text-gray-900">Mis Metas</h2>
-                    <button
-                      onClick={() => setShowGoalForm(true)}
-                      className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium"
-                    >
-                      + Nueva Meta
-                    </button>
+                    {goals.length > 0 && (
+                      <button
+                        onClick={() => setShowGoalForm(true)}
+                        className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium"
+                      >
+                        + Nueva Meta
+                      </button>
+                    )}
                   </div>
 
                   {/* Goals List */}
