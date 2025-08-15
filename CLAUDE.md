@@ -1,0 +1,1 @@
+- estoy haciendo una aplicacion para gestionar mis ingresos y gastos
