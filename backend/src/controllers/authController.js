@@ -19,10 +19,8 @@ const googleAuth = async (req, res) => {
         }/login?error=${encodeURIComponent("Usuario no encontrado")}`
       );
     }
-    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 
     const token = generateToken(user._id);
-    console.log("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
 
     const clientUrl = process.env.CLIENT_URL || "http://localhost:5173";
 
@@ -33,9 +31,6 @@ const googleAuth = async (req, res) => {
       role: user.role,
     };
 
-    console.log("Google OAuth success, redirecting user:", user.email);
-    console.log("clientUrl", clientUrl);
-    console.log("process.env.CLIENT_URL", process.env.CLIENT_URL);
 
     res.redirect(
       `${clientUrl}/login?token=${token}&user=${encodeURIComponent(
