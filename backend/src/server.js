@@ -1,49 +1,52 @@
-const dotenv = require('dotenv');
+const dotenv = require("dotenv");
 dotenv.config();
 
-const express = require('express');
-const cors = require('cors');
-const session = require('express-session');
-const passport = require('./config/passport');
-const connectDB = require('./config/database');
-const errorHandler = require('./middleware/errorHandler');
+const express = require("express");
+const cors = require("cors");
+const session = require("express-session");
+const passport = require("./config/passport");
+const connectDB = require("./config/database");
+const errorHandler = require("./middleware/errorHandler");
 
 connectDB();
 
 const app = express();
 
-app.use(cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:5174',
-  credentials: true
-}));
+app.use(
+  cors({
+    origin: process.env.CLIENT_URL || "http://localhost:5174",
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use(session({
-  secret: process.env.SESSION_SECRET || 'your-secret-key',
-  resave: false,
-  saveUninitialized: false,
-  cookie: {
-    secure: process.env.NODE_ENV === 'production',
-    maxAge: 24 * 60 * 60 * 1000
-  }
-}));
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET || "your-secret-key",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      secure: process.env.NODE_ENV === "production",
+      maxAge: 24 * 60 * 60 * 1000,
+    },
+  })
+);
 
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/api/auth', require('./routes/auth'));
-app.use('/api/transactions', require('./routes/transactions'));
-app.use('/api/goals', require('./routes/goals'));
-app.use('/api/budgets', require('./routes/budgets'));
+app.use("/api/auth", require("./routes/auth"));
+app.use("/api/transactions", require("./routes/transactions"));
+app.use("/api/goals", require("./routes/goals"));
+app.use("/api/budgets", require("./routes/budgets"));
 
-
-app.get('/api/health', (req, res) => {
+app.get("/api/health", (req, res) => {
   res.status(200).json({
     success: true,
-    message: 'Server is running!',
-    timestamp: new Date().toISOString()
+    message: "Server is running!",
+    timestamp: new Date().toISOString(),
   });
 });
 

@@ -1,12 +1,12 @@
-version: '3.8'
+version: "3.8"
 
 services:
   mongodb:
-    image: mongo:7.0
+    image: mongo:4.4.6
     container_name: testai_mongodb
     restart: unless-stopped
     ports:
-      - "27017:27017"
+      - "27027:27017"
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
@@ -33,7 +33,7 @@ services:
       - MONGO_PASSWORD=${MONGO_PASSWORD}
       - MONGO_DATABASE=${MONGO_DATABASE}
       - JWT_SECRET=${JWT_SECRET}
-      - CLIENT_URL=http://localhost:5173
+      - CLIENT_URL=https://mcp.digital-goods.es
       - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
       - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET}
       - SESSION_SECRET=${SESSION_SECRET}
@@ -54,7 +54,7 @@ services:
     ports:
       - "5173:5173"
     environment:
-      - VITE_API_URL=http://localhost:5000/api
+      - VITE_API_URL=https://mcp.digital-goods.es/api
     volumes:
       - ./frontend:/app
       - /app/node_modules

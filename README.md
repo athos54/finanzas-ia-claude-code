@@ -5,6 +5,7 @@ Una aplicación web completa desarrollada con Node.js, Express, MongoDB, React, 
 ## Tecnologías Utilizadas
 
 ### Backend
+
 - **Node.js** - Runtime de JavaScript
 - **Express.js** - Framework web
 - **MongoDB** - Base de datos NoSQL
@@ -13,6 +14,7 @@ Una aplicación web completa desarrollada con Node.js, Express, MongoDB, React, 
 - **bcryptjs** - Encriptación de contraseñas
 
 ### Frontend
+
 - **React** - Librería de interfaz de usuario
 - **Vite** - Herramienta de desarrollo rápido
 - **Tailwind CSS 4** - Framework de CSS utility-first
@@ -47,6 +49,7 @@ testai/
 ### Opción 1: Con Docker (Recomendado)
 
 1. **Ejecutar con Docker Compose:**
+
 ```bash
 # Construir e iniciar todos los servicios
 npm run docker:up
@@ -56,11 +59,13 @@ npm run docker:logs
 ```
 
 Esto ejecutará:
+
 - MongoDB en puerto 27017
 - Backend en http://localhost:5000
 - Frontend en http://localhost:5173
 
 2. **Parar los servicios:**
+
 ```bash
 npm run docker:down
 ```
@@ -68,20 +73,23 @@ npm run docker:down
 ### Opción 2: Desarrollo Local
 
 1. **Instalar dependencias:**
+
 ```bash
 npm run install:all
 ```
 
 2. **Configurar variables de entorno:**
+
 ```bash
 # Los archivos .env ya están configurados
 # Puedes modificarlos según necesites
 ```
 
 3. **Asegurar MongoDB:**
-Asegúrate de tener MongoDB ejecutándose localmente en el puerto 27017.
+   Asegúrate de tener MongoDB ejecutándose localmente en el puerto 27017.
 
 4. **Ejecutar en modo desarrollo:**
+
 ```bash
 npm run dev
 ```
@@ -89,6 +97,7 @@ npm run dev
 ## Scripts Disponibles
 
 ### Desarrollo Local
+
 - `npm run dev` - Ejecuta backend y frontend en paralelo
 - `npm run dev:backend` - Solo el backend
 - `npm run dev:frontend` - Solo el frontend
@@ -96,6 +105,7 @@ npm run dev
 - `npm run install:all` - Instala todas las dependencias
 
 ### Docker
+
 - `npm run docker:up` - Inicia todos los servicios con Docker
 - `npm run docker:down` - Para todos los servicios Docker
 - `npm run docker:build` - Reconstruye las imágenes Docker
@@ -104,18 +114,21 @@ npm run dev
 ## Funcionalidades
 
 ### Autenticación
+
 - Registro de usuarios
 - Inicio de sesión
 - Protección con JWT
 - Hash de contraseñas con bcrypt
 
 ### Frontend
+
 - Interfaz responsive con Tailwind CSS
 - Navegación con React Router
 - Interceptores de Axios para manejo de tokens
 - Páginas: Home, Login, Register, Dashboard
 
 ### Backend
+
 - API RESTful con Express
 - Conexión a MongoDB con Mongoose
 - Middleware de manejo de errores
@@ -125,11 +138,13 @@ npm run dev
 ## Desarrollo
 
 ### Agregar nuevas rutas API
+
 1. Crear el controlador en `backend/src/controllers/`
 2. Agregar las rutas en `backend/src/routes/`
 3. Importar en `backend/src/server.js`
 
 ### Agregar nuevas páginas
+
 1. Crear componente en `frontend/src/pages/`
 2. Agregar ruta en `frontend/src/App.jsx`
 3. Actualizar navegación si es necesario
@@ -137,6 +152,7 @@ npm run dev
 ## Variables de Entorno
 
 ### Backend (.env)
+
 ```env
 PORT=5000
 MONGODB_URI=mongodb://localhost:27017/testai
@@ -146,8 +162,9 @@ CLIENT_URL=http://localhost:5173
 ```
 
 ### Frontend (frontend/.env)
+
 ```env
-VITE_API_URL=http://localhost:5000/api
+VITE_API_URL=https://mcp.digital-goods.es/api
 ```
 
 ## Contribuir
